@@ -24,6 +24,12 @@
                 <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -41,11 +47,51 @@
         </div>
     </section>
 
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search" class="search-input" placeholder="Search products...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="stationery">Stationery</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="1000">0</h3>
+                    <p>Products Sold</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Product Categories</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="99">0</h3>
+                    <p>% Customer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Stationery Section -->
     <section id="stationery" class="products-section">
         <div class="container">
             <h2 class="section-title">Stationery Collection</h2>
-            <div class="products-grid">
+            <div class="products-grid" data-category="stationery">
                 <div class="product-card">
                     <div class="product-image">
                         <i class="fas fa-pen-fancy"></i>
@@ -94,7 +140,7 @@
     <section id="sports" class="products-section bg-light">
         <div class="container">
             <h2 class="section-title">Sports Equipment</h2>
-            <div class="products-grid">
+            <div class="products-grid" data-category="sports">
                 <div class="product-card">
                     <div class="product-image">
                         <i class="fas fa-table-tennis-paddle-ball"></i>
@@ -264,6 +310,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty">Your cart is empty</div>
+            </div>
+            <div class="cart-total" id="cartTotal" style="display: none;">
+                <h3>Total: ₹<span id="cartTotalAmount">0</span></h3>
+                <button class="submit-button" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <h3>Admin Panel - Customer Queries</h3>
+            <button class="submit-button" onclick="toggleAdminPanel()">Close Admin</button>
+        </div>
+        <div id="queriesList"></div>
+    </div>
+
+    <!-- Admin Toggle Button (Hidden by default) -->
+    <button id="adminToggle" class="admin-toggle" style="display: none;" onclick="toggleAdminPanel()">
+        <i class="fas fa-cog"></i>
+    </button>
 
     <script src="js/main.js"></script>
 </body>
