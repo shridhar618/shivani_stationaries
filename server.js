@@ -147,14 +147,14 @@ app.get('/api/products', (req, res) => {
             image: "fas fa-skating"
         }
     ];
-    
+
     res.json(products);
 });
 
 // Handle cart operations
 app.post('/api/cart', (req, res) => {
     const { action, productId, quantity } = req.body;
-    
+
     // In a real application, you would handle cart operations here
     // For now, we'll just return success
     res.json({ success: true, message: 'Cart operation completed' });
@@ -168,14 +168,14 @@ app.get('/api/stats', (req, res) => {
         categories: 50,
         satisfaction: 99
     };
-    
+
     res.json(stats);
 });
 
 // Admin authentication (simple check)
 app.post('/api/admin/login', (req, res) => {
     const { password } = req.body;
-    
+
     // Simple password check (in production, use proper authentication)
     if (password === 'admin123') {
         res.json({ success: true, token: 'admin-token' });
@@ -187,14 +187,14 @@ app.post('/api/admin/login', (req, res) => {
 // Delete a query (admin only)
 app.delete('/api/queries/:id', (req, res) => {
     const queryId = parseInt(req.params.id);
-    
+
     try {
         if (fs.existsSync('data/queries.json')) {
             const data = fs.readFileSync('data/queries.json', 'utf8');
             let queries = JSON.parse(data);
-            
+
             queries = queries.filter(query => query.id !== queryId);
-            
+
             fs.writeFileSync('data/queries.json', JSON.stringify(queries, null, 2));
             res.json({ success: true, message: 'Query deleted successfully' });
         } else {
