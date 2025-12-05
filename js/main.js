@@ -281,7 +281,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCartDisplay() {
         const cartCount = document.querySelector('.cart-count');
         if (cartCount) {
-            cartCount.textContent = cart.length;
+            // Count total quantity of all items in cart
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalQuantity;
         }
     }
 
