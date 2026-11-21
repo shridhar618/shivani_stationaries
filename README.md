@@ -1,5 +1,7 @@
 # StatSport: Stationery & Sports Store
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
+
 A website for a stationery and sports equipment store, with a product catalogue, cart, contact form and simple admin panel on a Node.js/Express backend.
 
 ## Features
@@ -31,3 +33,14 @@ Node.js · Express · HTML · CSS · JavaScript
 npm install
 npm start          # or: npm run dev (nodemon)
 ```
+
+
+## Environment variables
+
+| Variable | Purpose | Default |
+|---|---|---|
+| `PORT` | Port the server listens on | `3000` |
+
+## License
+
+MIT, as declared in `package.json`.
